@@ -1,10 +1,10 @@
 **Overview**
 
-- Frontend: Use HTML, CSS, JavaScript for the user-friendly interface.
+- Frontend: Use HTML for the user-friendly interface.
 
 - Backend: Use Django to manage the database and implement the logic for student record handling.
 
-- Database: Store student details, achievements, scores, etc., in a relational database (SQLite, PostgreSQL).
+- Database: Store student details, achievements, scores, etc., in a relational database (SQLite).
 
 - Machine Learning: Linear regression to dynamically weigh various factors and rank students.
 
