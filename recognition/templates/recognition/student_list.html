@@ -1,6 +1,7 @@
 {% extends "recognition/base_generic.html" %}
 {% block content %}
 <div class="container">
+    <a href="{% url 'create_student' %}" class="btn btn-primary">Add New Achievement</a>
     <h2>Top 3 Students by Batch</h2>
     {% for batch, students in top_students.items %}
     <h3>Batch Year: {{ batch.batch_year }}</h3>
