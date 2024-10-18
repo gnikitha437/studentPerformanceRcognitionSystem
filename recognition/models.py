@@ -19,17 +19,30 @@ class Student(models.Model):
     teaching_assistance_score = models.FloatField()
     weighted_score = models.FloatField(default=0.0, editable=False)
     
-    def save(self, *args, **kwargs):
-        # Automatically calculate the weighted score based on other scores
-        self.weighted_score = (self.gpa * 0.4 +  # Example weight
-                               self.core_course_score * 0.3 +
-                               self.hackathon_score * 0.1 +
-                               self.paper_presentation_score * 0.1 +
-                               self.teaching_assistance_score * 0.1)
-        super().save(*args, **kwargs)
-    
     def __str__(self):
         return self.name
+
+    # Add the calculate_weighted_score method
+    def calculate_weighted_score(self):
+        # Example weight values
+        gpa_weight = 0.4
+        core_course_weight = 0.3
+        hackathon_weight = 0.1
+        paper_weight = 0.1
+        teaching_assistance_weight = 0.1
+        
+        # Calculate weighted score
+        self.weighted_score = (self.gpa * gpa_weight +
+                               self.core_course_score * core_course_weight +
+                               self.hackathon_score * hackathon_weight +
+                               self.paper_presentation_score * paper_weight +
+                               self.teaching_assistance_score * teaching_assistance_weight
+        )
+        
+    def save(self, *args, **kwargs):
+        # Calculate the weighted score before saving
+        self.calculate_weighted_score()
+        super().save(*args, **kwargs)
 
 class Achievement(models.Model):
     ACHIEVEMENT_TYPES = [

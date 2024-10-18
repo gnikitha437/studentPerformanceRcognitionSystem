@@ -10,7 +10,9 @@ def create_student(request):
         form = StudentForm(request.POST)
         if form.is_valid():
             form.save()
-            Student.calculate_weighted_score()
+            student = form.save(commit=False)
+            student.calculate_weighted_score()
+            student.save()
             return redirect('student-list')
     else:
         form = StudentForm()
@@ -30,8 +32,10 @@ def create_achievement(request):
     if request.method == 'POST':
         form = AchievementForm(request.POST)
         if form.is_valid():
+            achievement = form.save()
+            student = achievement.student
+            student.calculate_weighted_score()
             form.save()
-            Student.calculate_weighted_score()
             return redirect('achievement-list')
     else:
         form = AchievementForm()
