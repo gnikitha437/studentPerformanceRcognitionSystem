@@ -1,0 +1,13 @@
+{% extends 'recognition/base_generic.html' %}
+
+{% block title %}Student Achievements{% endblock %}
+
+{% block content %}
+<h1>Student Achievements</h1>
+<ul>
+    {% for achievement in achievements %}
+    <li>{{ achievement.title }} - {{ achievement.student.name }} ({{ achievement.date }})</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'create-achievement' %}" class="btn btn-primary">Add New Achievement</a>
+{% endblock %}

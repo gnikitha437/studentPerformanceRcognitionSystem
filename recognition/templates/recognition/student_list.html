@@ -1,0 +1,29 @@
+{% extends "recognition/base_generic.html" %}
+{% block content %}
+<div class="container">
+    <h2>Top 3 Students by Batch</h2>
+    {% for batch, students in top_students.items %}
+    <h3>Batch Year: {{ batch.batch_year }}</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>GPA</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.gpa }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">No students found for this batch.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endfor %}
+</div>
+{% endblock %}
