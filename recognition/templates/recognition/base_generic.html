@@ -7,8 +7,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Student Recognition</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
+        <a class="navbar-brand ms-4" style="font-weight: bold" href="/">Student Recognition</a>
+        <div class="me-1 ms-auto">
+            <a href="{% url 'create_student' %}" class="btn btn-sm btn-outline-secondary">Add Student</a>
+            <a href="{% url 'create-achievement' %}" class="btn btn-sm btn-outline-secondary">Add Achievement</a>
+            <a href="{% url 'achievement-list' %}" class="btn btn-sm btn-outline-secondary">Achievements</a>
+            <a href="/admin/" class="btn btn-sm btn-outline-primary ms-4">Login</a>
+        </div>
     </nav>
 
     <div class="container">

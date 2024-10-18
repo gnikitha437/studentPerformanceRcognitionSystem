@@ -3,11 +3,11 @@
 {% block title %}Student Achievements{% endblock %}
 
 {% block content %}
-<h1>Student Achievements</h1>
+<h6 class="me-2">Student Achievements</h6>
 <ul>
     {% for achievement in achievements %}
     <li>{{ achievement.title }} - {{ achievement.student.name }} ({{ achievement.date }})</li>
     {% endfor %}
 </ul>
-<a href="{% url 'create-achievement' %}" class="btn btn-primary">Add New Achievement</a>
+{% comment %} <a href="{% url 'create-achievement' %}" class="btn btn-primary">Add New Achievement</a> {% endcomment %}
 {% endblock %}
